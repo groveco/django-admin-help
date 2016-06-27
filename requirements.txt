@@ -1,0 +1,4 @@
+markdown==2.6
+django-object-tools==1.9
+django-ace==1.0
+django>=1.7
