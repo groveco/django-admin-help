@@ -2,12 +2,13 @@ from django.db import models
 from django.contrib.contenttypes.models import ContentType
 from django.core import urlresolvers
 from django.utils.safestring import mark_safe
+from django.core.urlresolvers import reverse
 import markdown
 
 
 class AdminHelpManager(models.Manager):
 
-    MISSING_LINK_TEXT = "Help doesn't exist for this topic. <a href='%s?type=%s'>Click here</a> to create it."
+    MISSING_LINK_TEXT = "Help doesn't exist for this topic. <a href='%s?type=%s'>Click here</a> to create it or <a href="">request it.</a>" % reverse('admin_help_request')
 
     def _get_ct(self, model):
         return ContentType.objects.filter(model=model.__name__.lower()).first()

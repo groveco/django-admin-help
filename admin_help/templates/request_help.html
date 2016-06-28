@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request Help</title>
+    <meta content="{{ csrf_token }}" name="x-csrf-token" />
+</head>
+<body>
+    <h1>Request Help with {{ friendly }}</h1>
+    <form action="/admin-help/help-request/" method="post">
+      {% csrf_token %}
+      <label for="inquiry">What's your question?</label>
+      <input type="text" name="inquiry" id="inquiry" />
+      <input type="hidden" value="{{ ct_id }}" name="ct_id" id="ct_id" />
+      <input type="submit" />
+    </form>
+</body>
+</html>
