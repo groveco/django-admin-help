@@ -33,4 +33,9 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
+    install_requires=[
+        'markdown==2.6',
+        'django-object-tools==1.9',
+        'django-ace==1.0'
+    ],
 )
