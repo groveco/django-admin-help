@@ -8,7 +8,7 @@ import markdown
 
 class AdminHelpManager(models.Manager):
 
-    MISSING_LINK_TEXT = "Help doesn't exist for this topic. <a href='%s?type=%s'>Click here</a> to create it or <a href="">request it.</a>" % reverse('admin_help_request')
+    MISSING_LINK_TEXT = "Help doesn't exist for this topic. <a href='%s?type=%s'>Click here</a> to create it or <a href="">request it.</a>"
 
     def _get_ct(self, model):
         return ContentType.objects.filter(model=model.__name__.lower()).first()
@@ -19,7 +19,7 @@ class AdminHelpManager(models.Manager):
     def missing_message(self, model):
         self_ct = self._get_ct(self.model)
         url = urlresolvers.reverse("admin:%s_%s_add" % (self_ct.app_label, self_ct.model))
-        return mark_safe(AdminHelpManager.MISSING_LINK_TEXT % (url, self._get_ct(model).id))
+        return mark_safe(AdminHelpManager.MISSING_LINK_TEXT % (url, self._get_ct(model).id, reverse('admin_help_request')))
 
 
 class AdminHelp(models.Model):
