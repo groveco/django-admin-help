@@ -8,7 +8,7 @@ import markdown
 
 class AdminHelpManager(models.Manager):
 
-    MISSING_LINK_TEXT = "Help doesn't exist for this topic. <a href='%s?type=%s'>Click here</a> to create it or <a href="">request it.</a>"
+    MISSING_LINK_TEXT = "Help doesn't exist for this topic. <a href='%s?type=%s'>Click here</a> to create it or <a href="%s">request it.</a>"
 
     def _get_ct(self, model):
         return ContentType.objects.filter(model=model.__name__.lower()).first()
